@@ -1,5 +1,6 @@
 Add the following lines to your apache's C:\xampp\apache\conf\extra\httpd-vhosts.conf:
 
+```
 <VirtualHost *:80>
     ServerName slimapi.localhost
     DocumentRoot "C:/Users/YOUR_USERNAME/scoop/shims/slimapi_dave_hollingworth/public"
@@ -9,3 +10,4 @@ Add the following lines to your apache's C:\xampp\apache\conf\extra\httpd-vhosts
         AllowOverride All
     </Directory>
 </VirtualHost>
+```
