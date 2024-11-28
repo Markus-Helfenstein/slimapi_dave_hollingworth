@@ -9,10 +9,16 @@ use Slim\Handlers\Strategies\RequestResponseArgs;
 use App\Controllers\ProductIndex;
 use App\Controllers\Products;
 use App\Middleware\GetProduct;
+use Dotenv\Dotenv;
 
 define('APP_ROOT', dirname(__DIR__));
 
 require APP_ROOT . '/vendor/autoload.php';
+
+// From this index.php, we have to go up one folder to find the .env file in the project root
+$dotenv = Dotenv::createImmutable(__DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR);
+$dotenv->load();
+$dotenv->required(['DB_DSN', 'DB_USERNAME', 'DB_PASSWORD'])->notEmpty();
 
 $builder = new ContainerBuilder();
 $container = $builder
